@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{age}}
+      <button v-on:click="age++">Increment</button>
+      <button v-on:click="decrement">Decrement</button>
+      <h1>Line is {{line}}</h1>
+      <button @click="changeTitle">Change</button>
+      <div v-if="visibility">
+        <h1>IS IT VISIBLE ?</h1>
+        <ul>
+          <li v-for="book in books" @click="change(book)">
+            <h3>
+              {{book.bookN}} <br />
+              <span>{{book.title}}</span>
+              <h5>{{book.isFav}}</h5>
+            </h3>
+          </li>
+        </ul>
+      </div>
+      <button @click="togglebook">
+        <span v-if="visibility">Hide</span>
+        <span v-else>Show</span>
+      </button>
+      <h1 v-show="visibility">Books are visible</h1>
+      <br />
+      <h1>
+        <a :href="url">Link To Youtube</a>
+      </h1>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
